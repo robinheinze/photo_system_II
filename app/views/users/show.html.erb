@@ -27,7 +27,9 @@
 </div>
 <div class="row">
   <div class="col-sm-3">
-  <%= link_to "New post", new_user_post_path(@user) %>
+  <p><%= link_to "New post", new_user_post_path(@user) %></p>
+  <p>Delete account for <%= @user.name %> <span class="redstuff"><%= link_to " ☠ ", user_path(@user), :data => {:confirm => "Are you quite certain?",
+                                   :method => "delete"} %></p></span></p>
   </div>
   <div class="col-sm-9">
   </div>

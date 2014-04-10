@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :authorize, only: [:new, :edit, :update, :destroy, :create]
+  before_filter :authorize_posts, only: [:new, :edit, :update, :destroy, :create]
 
   def create
     @post = Post.new(post_params)

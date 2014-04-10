@@ -11,8 +11,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def authorize
+  def authorize_posts
     redirect_to '/', alert: "You can't do this thing you wish to do...IMPOSTER!" if (current_user != User.find(params[:user_id]))
-    # before_filter :authorize, only: [:edit, :update] --put in controllers
+  end
+
+  def authorize_users
+    redirect_to '/', alert: "You can't do this thing you wish to do...IMPOSTER!" if (current_user != User.find(params[:id]))
   end
 end
