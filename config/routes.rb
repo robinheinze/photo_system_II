@@ -5,7 +5,7 @@ PhotoSharing::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :users, :only => [:create, :new, :show, :destroy] do
-    resources :posts, :only => [:new, :create, :edit, :update, :destroy]
+    resources :posts, :except => [:show]
   end
   resources :sessions, :only => [:create, :new, :destroy]
   resources :tags, :only => [:create, :destroy]

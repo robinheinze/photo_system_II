@@ -1,0 +1,31 @@
+<%= content_for(:navigation) do %>
+  <% if current_user %>
+    <p>Logged in as <%= current_user.name %>.</p>
+    <p><%= link_to "Log the F*^$ out!", logout_path %></p>
+    <p><%= link_to "Main Page", "/" %></p>
+  <% else %>
+    <p><%= link_to "Login", login_path %></p>
+    <p><%= link_to "Main Page", "/" %></p>
+  <% end %>
+  <p><%= link_to "Back to #{@user.name}'s profile", user_path(@user) %></p>
+<% end %>
+
+<% content_for(:header) do %>
+  <div class="header">
+    <h1>Photos of <%= @user.name %></h1>
+  </div>
+<% end %>
+<div class="row">
+  <ul>
+    <% @user.posts_of_me.each do |post| %>
+      <li><p><%= post.title %>: <%= post.content %></p>
+          <p><%= image_tag post.photo.url(:small) %>
+          <% if post.tags.any? %>
+            <p>
+              Tagged friends: <%= post.tagged_users.map{|user| user.name }.join(", ") %>
+            </p>
+          <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

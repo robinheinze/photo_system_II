@@ -34,11 +34,12 @@
 </div>
 <div class="row">
   <div class="col-sm-3">
-  <% if @user == current_user %>
-  <p><%= link_to "New post", new_user_post_path(@user) %></p>
+  <p><% if @user == current_user %>
+  <%= link_to "New post", new_user_post_path(@user) %></p>
   <p>Delete account for <%= @user.name %> <span class="redstuff"><%= link_to " ☠ ", user_path(@user), :data => {:confirm => "Are you quite certain?",
-                                 :method => "delete"} %></p></span></p>
+                                 :method => "delete"} %></p></span>
   <% end %>
+  <p>See <%= link_to "photos of #{@user.name}", user_posts_path(@user) %></p>
   </div>
   <div class="col-sm-9">
   </div>
