@@ -25,9 +25,10 @@
   </div>
   <div class="col-sm-9">
     <ul>
-      <% Post.all.each do |post| %>
+      <% Post.all.reverse.each do |post| %>
       <% if post.user %>
           <li><p><%= post.title %>: <%= post.content %></p>
+              <p>   Posted by: <%= link_to "#{post.user.name}", user_path(post.user) %></p>
               <p><%= image_tag post.photo.url(:small) %>
               <% if post.tags.any? %>
                 <p>
