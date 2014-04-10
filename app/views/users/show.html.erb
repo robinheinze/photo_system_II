@@ -7,6 +7,14 @@
   <p><%= link_to "Login", login_path %></p>
   <p><%= link_to "Main Page", "/" %></p>
   <% end %>
+  <div class="left-nav">
+    <p><% if @user == current_user %>
+    <%= link_to "New post", new_user_post_path(@user) %></p>
+    <p>Delete account for <%= @user.name %> <span class="redstuff"><%= link_to " ☠ ", user_path(@user), :data => {:confirm => "Are you quite certain?",
+                                   :method => "delete"} %></p></span>
+    <% end %>
+    <p>See <%= link_to "photos of #{@user.name}", user_posts_path(@user) %></p>
+  </div>
 <% end %>
 
 <% content_for(:header) do %>
@@ -31,16 +39,4 @@
       </li>
     <% end %>
   </ul>
-</div>
-<div class="row">
-  <div class="col-sm-3">
-  <p><% if @user == current_user %>
-  <%= link_to "New post", new_user_post_path(@user) %></p>
-  <p>Delete account for <%= @user.name %> <span class="redstuff"><%= link_to " ☠ ", user_path(@user), :data => {:confirm => "Are you quite certain?",
-                                 :method => "delete"} %></p></span>
-  <% end %>
-  <p>See <%= link_to "photos of #{@user.name}", user_posts_path(@user) %></p>
-  </div>
-  <div class="col-sm-9">
-  </div>
 </div>

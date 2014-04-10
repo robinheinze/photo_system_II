@@ -54,11 +54,8 @@ body {
 }
 
 .left-nav {
-  border: 1px solid black;
-  border-radius: 5px;
   padding-left: 20px;
   margin-top: 90px;
-  background-color: blanchedalmond;
 }
 
 .form {
