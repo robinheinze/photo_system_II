@@ -29,11 +29,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'faker'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'paperclip', '~> 4.1'
@@ -54,10 +49,10 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'capybara'
 end
 
 group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
   gem 'shoulda-matchers'
 end

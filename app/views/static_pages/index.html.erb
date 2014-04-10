@@ -9,7 +9,7 @@
 
 <% content_for(:header) do %>
   <div class="header">
-    <h1>FARM FOTOGRAPHY</h1>
+    <h1>Awww Therapy</h1>
   </div>
 <% end %>
 
@@ -27,7 +27,7 @@
     <ul>
       <% Post.all.reverse.each do |post| %>
       <% if post.user %>
-          <li><p><%= post.title %>: <%= post.content %></p>
+          <li class = "post"><p><%= post.title %>: <%= post.content %></p>
               <p>   Posted by: <%= link_to "#{post.user.name}", user_path(post.user) %></p>
               <p><%= image_tag post.photo.url(:small) %>
               <% if post.tags.any? %>
