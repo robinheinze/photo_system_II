@@ -8,6 +8,7 @@ class Post < ActiveRecord::Base
 
   validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }, size: {less_than: 5.megabytes}
   validates_attachment_presence :photo
+  validates :user_id, presence: true
 
   def tagged_users
     users = []
