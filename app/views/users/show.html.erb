@@ -18,7 +18,9 @@
   <ul>
     <% @user.posts.each do |post| %>
       <li><p><%= post.title %>: <%= post.content %></p>
-          <p><%= image_tag post.photo.url(:small) %></p>
+          <p><%= image_tag post.photo.url(:small) %>
+          <span class="redstuff"><%= link_to " ☠ ", user_post_path(@user, post), :data => {:confirm => "Are you quite certain?",
+                                   :method => "delete"} %></p></span>
       </li>
     <% end %>
   </ul>

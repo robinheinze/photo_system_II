@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :authorize, only: [:edit, :update, :destroy, :create]
+  before_filter :authorize, only: [:new, :edit, :update, :destroy, :create]
 
   def create
     @post = Post.new(post_params)
@@ -14,6 +14,12 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @user = User.find(params[:user_id])
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_path(@post.user)
   end
 
 private
