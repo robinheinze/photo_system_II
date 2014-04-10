@@ -17,7 +17,7 @@
 <div class="row">
   <ul>
     <% @user.posts.each do |post| %>
-      <li><p><%= post.title %>: <%= post.content %></p>
+      <li class="post"><p><%= post.title %>: <%= post.content %></p>
           <p><%= image_tag post.photo.url(:small) %>
           <% if post.tags.any? %>
             <p>

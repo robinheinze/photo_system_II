@@ -14,12 +14,14 @@
  */
 
 .header {
-  margin-bottom: 40px;
+  margin: 20px auto 40px auto;
   text-align: center;
+  font-size: 45px;
 }
 
 .navigation {
   margin: 20px auto 40px auto;
+
 }
 
 .footer {
@@ -31,13 +33,34 @@
   color: red;
   padding: 5px;
 }
+
 ul {
   list-style: none;
 }
+a {
+  color: darkslategray;
+}
+
+body {
+  background-color: lightsteelblue;
+}
+
 .post {
-  padding: 3px;
-  margin: 5px;
+  padding: 20px;
   border: 1px solid black;
   border-radius: 5px;
+  background-color: blanchedalmond;
+  margin: 5px;
+}
 
+.left-nav {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-left: 20px;
+  margin-top: 90px;
+  background-color: blanchedalmond;
+}
+
+.form {
+  max-width: 500px;
 }

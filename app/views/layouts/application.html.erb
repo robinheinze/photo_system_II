@@ -9,18 +9,23 @@
 <body>
   <div class="container">
     <div class="row">
+
       <div class= "col-sm-3 navigation">
         <%= yield(:navigation) %>
       </div>
-      <div class= "col-sm-6">
-        <%= yield(:header) %>
+
+      <div class= "col-sm-9">
+
+        <div class="row">
+          <%= yield(:header) %>
+
+          <%= flash[:notice] %>
+          <%= flash[:alert] %>
+          <%= yield %>
+        </div>
       </div>
-      <div class= "col-sm-3">
-      </div>
+
     </div>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
-    <%= yield %>
   </div>
 </body>
 </html>
