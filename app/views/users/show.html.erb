@@ -19,9 +19,14 @@
     <% @user.posts.each do |post| %>
       <li><p><%= post.title %>: <%= post.content %></p>
           <p><%= image_tag post.photo.url(:small) %>
+          <% if post.tags.any? %>
+            <p>
+              Tagged friends: <%= post.tagged_users.map{|user| user.name }.join(", ") %>
+            </p>
+          <% end %>
           <% if @user == current_user %>
-          <br/><span class="redstuff"><%= link_to " ☠ ", user_post_path(@user, post), :data => {:confirm => "Are you quite certain?",
-                                   :method => "delete"} %></span> | <%= link_to "Edit", edit_user_post_path(@user, post) %></p>
+          <span class="redstuff"><%= link_to " ☠ ", user_post_path(@user, post), :data => {:confirm => "Are you quite certain?",
+                                   :method => "delete"} %></span> | <%= link_to "Edit or Tag", edit_user_post_path(@user, post) %></p>
           <% end %>
       </li>
     <% end %>

@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @user = @post.user
+    @tag = Tag.new
   end
 
   def update

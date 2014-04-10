@@ -13,6 +13,15 @@
       </div>
     <% end %>
 
+    <p>
+      <% if @post.photo_file_name %>
+        <%= image_tag @post.photo.url(:small) %>
+        <% if @post.tags.any? %>
+          <p>Tagged friends: <%= @post.tagged_users.map{|user| user.name }.join(", ") %></p>
+        <% end %>
+      <% end %>
+    </p>
+
     <div class="form-group">
       <%= f.label :title %>
       <%= f.text_field :title, :class => "form-control" %>

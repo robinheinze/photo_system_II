@@ -18,4 +18,24 @@
   <%= render 'form'%>
 </div>
 
+<div class="row">
+  <div class="col-sm-4">
+  </div>
+  <div class="col-sm-4">
+    <h3>Tag a friend</h3>
+    <%= form_for(@tag) do |f| %>
+      <div class="form-group">
+        <%= f.label :User %>
+        <%= f.collection_select :user_id, User.all, :id, :name, :class => "form-control" %>
+      </div>
+      <%= f.hidden_field :post_id, :value => @post.id %>
+      <div class="form-group">
+        <%= f.submit "Add Tag", :class => 'btn btn-info' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+  </div>
+</div>
+
 

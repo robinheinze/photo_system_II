@@ -6,6 +6,15 @@ class Post < ActiveRecord::Base
       :url => "/assets/posts/:id/:style/:basename.:extension",
       :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
 
-  validates_attachment :photo, presence: true, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }, size: {less_than: 5.megabytes}
+  validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }, size: {less_than: 5.megabytes}
+  validates_attachment_presence :photo
+
+  def tagged_users
+    users = []
+    self.tags.each do |tag|
+      users << tag.user
+    end
+    users
+  end
 
 end
