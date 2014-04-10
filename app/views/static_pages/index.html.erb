@@ -14,11 +14,29 @@
 <% end %>
 
 <div class="row">
-<ul>
-<% User.all.each do |user| %>
-  <li>
-    <%= link_to "#{user.name}", user_path(user) %>
-  </li>
-<% end %>
-</ul>
+  <div class="col-sm-3">
+    <ul>
+      <% User.all.each do |user| %>
+        <li>
+          <%= link_to "#{user.name}", user_path(user) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-sm-9">
+    <ul>
+      <% Post.all.each do |post| %>
+      <% if post.user %>
+          <li><p><%= post.title %>: <%= post.content %></p>
+              <p><%= image_tag post.photo.url(:small) %>
+              <% if post.tags.any? %>
+                <p>
+                  Tagged friends: <%= post.tagged_users.map{|user| user.name }.join(", ") %>
+               </p>
+              <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 </div>
