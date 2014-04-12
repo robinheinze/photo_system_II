@@ -28,9 +28,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'faker'
-
+gem 'bcrypt-ruby'
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt'
+
 gem 'paperclip', '~> 4.1'
 
 # Use unicorn as the app server

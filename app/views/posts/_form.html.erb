@@ -1,45 +1,43 @@
-<div class="col-sm-3">
-</div>
-<div class="col-sm-9 form">
-  <%= form_for [@user, @post], :html => { :multipart => true} do |f| %>
-    <% if @post.errors.any? %>
-      <div class="error_messages">
-        <h2>Please correct errors:</h2>
-        <ul>
-          <% @post.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <p>
-      <% if @post.photo_file_name %>
-        <%= image_tag @post.photo.url(:small) %>
-        <% if @post.tags.any? %>
-          <p>Tagged friends: <%= @post.tagged_users.map{|user| user.name }.join(", ") %></p>
-        <% end %>
+<% if @post.errors.any? %>
+  <div class="error_messages">
+    <h2>Please correct errors:</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-    </p>
+    </ul>
+  </div>
+<% end %>
 
-    <div class="form-group">
-      <%= f.label :title %>
-      <%= f.text_field :title, :class => "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_field :content, :class => "form-control" %>
-    </div>
-
-    <%= f.hidden_field :user_id, :value => @user.id %>
-
-    <div class="form-group">
-      <%= f.file_field :photo %>
-    </div>
-
-    <div class="form-group"><%= f.submit "Submit", :class => 'btn btn-info' %></div>
-
+<p>
+  <% if @post.photo_file_name %>
+    <%= image_tag @post.photo.url(:small) %>
+    <% if @post.tags.any? %>
+      <p>Tagged friends: <%= @post.tagged_users.map{|user| user.name }.join(", ") %></p>
+    <% end %>
   <% end %>
-</div>
+</p>
+
+
+<%= form_for [@user, @post], :html => { :multipart => true} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :content, :class => "form-control" %>
+  </div>
+
+  <%= f.hidden_field :user_id, :value => @user.id %>
+
+  <div class="form-group">
+    <%= f.file_field :photo %>
+  </div>
+
+  <div class="form-group"><%= f.submit "Submit", :class => 'btn btn-info' %></div>
+
+<% end %>
 

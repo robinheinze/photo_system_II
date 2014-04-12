@@ -5,27 +5,29 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Englebert' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-
-      <div class= "col-sm-3 navigation">
-        <%= yield(:navigation) %>
-      </div>
-
-      <div class= "col-sm-9">
-
-        <div class="row">
-          <%= yield(:header) %>
-
-          <%= flash[:notice] %>
-          <%= flash[:alert] %>
-          <%= yield %>
-        </div>
-      </div>
-
-    </div>
+  <nav class="navbar navbar-default">
+    <span class="nav-left logo"><%= link_to "Foto Farm", root_path %></span>
+    <span class="pull-right">
+      <% if current_user %>
+        Hello <%= current_user.name %>! | 
+        <%= link_to "Log Out", logout_path %>
+      <% else %>
+        <%= link_to "Login", login_path %> | 
+          <%= link_to "Sign Up", signup_path %>
+      <% end %>
+    </span>
+  </nav>
+  <%= yield(:header) %>
+ 
+  <div id="wrapper">
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
+    <%= yield %>
   </div>
+  
 </body>
 </html>

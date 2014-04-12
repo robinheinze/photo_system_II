@@ -1,0 +1,118 @@
+body {
+  background-color: #F74C4D;
+  font-family: 'Englebert', sans-serif;
+  font-size: 15px;
+}
+
+#wrapper {
+  width: 90%;
+  margin:10px auto;
+  padding: 20px;
+  background-color: #87EBE8;
+  border-radius: 20px;
+}
+
+.navbar {
+  background-color: #08A5AC;
+  padding: 0 10px 0 10px;
+  font-family: 'Englebert', sans-serif;
+  font-size: 20px;
+}
+
+.logo {
+ font-family: 'Gochi Hand', cursive;
+ font-size: 40px;
+ padding: 0 0 0 10px;
+}
+
+.navbar a {
+  line-height: 40px;
+  padding: 0 0 0 10px;
+}
+
+
+
+.logo a {
+  color: black;
+}
+
+.logo a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+  margin: 20px auto 40px auto;
+  text-align: center;
+  font-size: 45px;
+}
+
+.navigation {
+  margin: 20px auto 40px auto;
+
+}
+
+.footer {
+  margin: 50px auto;
+}
+
+.redstuff a {
+  font-size: 18px;
+  color: red;
+  padding: 5px;
+}
+
+.sign-up-form {
+  max-width: 400px;
+  margin: auto;
+}
+
+.new-post-form {
+  max-width: 400px;
+  margin: auto;
+}
+
+.edit-post-form {
+  max-width: 400px;
+  margin: auto;
+}
+.new-tag-form {
+  max-width: 400px;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  color: darkslategray;
+}
+
+
+.post {
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #F78585;
+  margin: 5px auto;
+  width: 90%;
+}
+
+.users-panel {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: #F78585;
+  margin: 5px auto;
+  width: 90%;
+}
+
+.form {
+  max-width: 500px;
+}
+
+.bottom-links {
+  margin: auto auto auto 0 ;
+  text-align: center;
+}

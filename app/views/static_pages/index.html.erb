@@ -1,43 +1,25 @@
-<%= content_for(:navigation) do %>
-  <% if current_user %>
-    <p>Logged in as <%= current_user.name %>.</p>
-    <p><%= link_to "Log the F*^$ out!", logout_path %></p>
-  <% else %>
-  <p><%= link_to "Login", login_path %> | <%= link_to "Sign Up", signup_path %></p>
+
+<div class="users-panel">
+  <h2>Users</h2>
+  <% User.all.each do |user| %>
+    <%= link_to "#{user.name}", user_path(user) %>, 
   <% end %>
-  <div class="left-nav">
-    <h4>Users</h4>
-    <p>
-    <% User.all.each do |user| %>
-
-      <%= link_to "#{user.name}", user_path(user) %>
-      <br/>
-    <% end %>
-    </p>
-  </div>
-<% end %>
-
-<% content_for(:header) do %>
-  <div class="header">
-    <p>Awww Therapy</p>
-  </div>
-<% end %>
-
-<div class="col-sm-9">
-  <ul>
-    <% Post.all.reverse.each do |post| %>
-    <% if post.user %>
-        <li class = "post"><p><%= post.title %></p>
-          <p><%= post.content %></p>
-            <p>   Posted by: <%= link_to "#{post.user.name}", user_path(post.user) %></p>
-            <p><%= image_tag post.photo.url(:small) %>
-            <% if post.tags.any? %>
-              <p>
-                Tagged friends: <%= post.tagged_users.map{|user| user.name }.join(", ") %>
-             </p>
-            <% end %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
 </div>
+
+
+<% Post.all.reverse.each do |post| %>
+  <% if post.user %>
+    <div class = "post">
+      <h2><%= post.title %></h2>
+      <p><%= post.content %></p>
+      <p>Posted by: <%= link_to "#{post.user.name}", user_path(post.user) %></p>
+      <p><%= image_tag post.photo.url(:small) %>
+      <% if post.tags.any? %>
+        <p>
+          Tagged friends: <%= post.tagged_users.map{|user| user.name }.join(", ") %>
+       </p>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+

@@ -1,36 +1,18 @@
-<%= content_for(:navigation) do %>
-  <% if current_user %>
-    <p>Logged in as <%= current_user.name %>.</p>
-    <p><%= link_to "Log the F*^$ out!", logout_path %></p>
-    <p><%= link_to "Main Page", "/" %></p>
-  <% else %>
-  <p><%= link_to "Sign Up", signup_path %></p>
-  <p><%= link_to "Main Page", "/" %></p>
-  <% end %>
-<% end %>
-
 <% content_for(:header) do %>
   <div class="header">
     <h1>Welcome Cute Animal Lovers</h1>
   </div>
 <% end %>
-<div class="row">
-  <div class="col-sm-4">
+<%= form_tag sessions_path do %>
+
+  <div class="form-group">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email], :class => "form-control" %>
   </div>
-  <div class="col-sm-4">
-    <%= form_tag sessions_path do %>
-      <div class="form-group">
-        <%= label_tag :email %>
-        <%= text_field_tag :email, params[:email], :class => "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= label_tag :password %>
-        <%= password_field_tag :password, nil, :class => "form-control" %>
-      </div>
-      <div class="form-group"><%= submit_tag "Login", :class => "btn btn-info" %>
-      </div>
-    <% end %>
+
+  <div class="form-group">
+    <%= label_tag :password %>
+    <%= password_field_tag :password, nil, :class => "form-control" %>
   </div>
-  <div class="col-sm-4">
-  </div>
-</div>
+
+<% end %>

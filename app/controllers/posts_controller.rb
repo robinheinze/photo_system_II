@@ -5,9 +5,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to "/users/#{@post.user_id}", notice: "Post added!"
+      redirect_to user_path(@post.user)
     else
-      render new_user_post_path(@post.user_id)
+      @user = User.find(params[:user_id])
+      render "new"
     end
   end
 
