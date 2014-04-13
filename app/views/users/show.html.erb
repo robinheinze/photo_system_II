@@ -13,16 +13,16 @@
           Tagged friends: <%= post.tagged_users.map{|user| user.name }.join(", ") %>
         </p>
       <% end %>
-      <% if @user == current_user %>
+      <p><% if @user == current_user %>
       <%= link_to "Delete", user_post_path(@user, post), :data => {:confirm => "Are you quite certain?",
                                :method => "delete"} %> | <%= link_to "Edit or Tag", edit_user_post_path(@user, post) %>
-      <% end %>
+      <% end %></p>
   </li>
 <% end %>
 </ul>
 <div class="bottom-links">
-  <% if @user == current_user %>
-    ༺ <%= link_to "New post", new_user_post_path(@user) %> | 
+  ༺<% if @user == current_user %>
+    <%= link_to "New post", new_user_post_path(@user) %> | 
     <%= link_to "Delete account for #{@user.name}", user_path(@user), 
                                     :data => {:confirm => "Are you quite certain?",
                                     :method => "delete"} %> | 

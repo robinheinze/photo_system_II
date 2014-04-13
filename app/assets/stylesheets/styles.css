@@ -1,19 +1,20 @@
 body {
-  background-color: #F74C4D;
+  background-color: #AAD5AC;
   font-family: 'Englebert', sans-serif;
-  font-size: 15px;
+  font-size: 20px;
+  color: #203C48;
 }
 
 #wrapper {
   width: 90%;
   margin:10px auto;
   padding: 20px;
-  background-color: #87EBE8;
+  background-color: #EDEAC7;
   border-radius: 20px;
 }
 
 .navbar {
-  background-color: #08A5AC;
+  background-color: #22958B;
   padding: 0 10px 0 10px;
   font-family: 'Englebert', sans-serif;
   font-size: 20px;
@@ -33,7 +34,7 @@ body {
 
 
 .logo a {
-  color: black;
+  color: #203C48;
 }
 
 .logo a:hover {
@@ -91,9 +92,9 @@ a {
 
 .post {
   padding: 20px;
-  border: 1px solid black;
+  border: 5px solid #22958B;
   border-radius: 5px;
-  background-color: #F78585;
+  background-color: #EDF0DB;
   margin: 5px auto;
   width: 90%;
 }
@@ -101,9 +102,9 @@ a {
 .users-panel {
   text-align: center;
   padding: 20px;
-  border: 1px solid black;
-  border-radius: 2px;
-  background-color: #F78585;
+  border: 5px solid #22958B;
+  border-radius: 5px;
+  background-color: #EDF0DB;
   margin: 5px auto;
   width: 90%;
 }

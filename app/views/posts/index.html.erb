@@ -3,6 +3,7 @@
     <% @user.posts_of_me.each do |post| %>
       <li class="post"><p><%= post.title %>: <%= post.content %></p>
           <p><%= image_tag post.photo.url(:small) %>
+          <p>Posted by: <%= link_to post.user.name, user_path(post.user) %></p>
           <% if post.tags.any? %>
             <p>
               Tagged friends: <%= post.tagged_users.map{|user| user.name }.join(", ") %>
