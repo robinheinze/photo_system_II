@@ -10,8 +10,11 @@
       <p><%= image_tag post.photo.url(:small) %>
       <% if post.tags.any? %>
         <p>
-          Tagged friends: <%= post.tagged_users.map{|user| user.name }.join(", ") %>
-        </p>
+          <% tagged_friends = post.tagged_users %>
+          Tagged friends: <% tagged_friends.each do |user| %>
+            <%= link_to user.name, user_path(user) %>, 
+          <% end %>
+       </p>
       <% end %>
       <p><% if @user == current_user %>
       <%= link_to "Delete", user_post_path(@user, post), :data => {:confirm => "Are you quite certain?",
